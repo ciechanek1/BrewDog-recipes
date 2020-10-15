@@ -1,6 +1,6 @@
 package com.ciechu.brewdogrecipes.core.di
 
-import com.ciechu.brewdogrecipes.features.data.PunkApi
+import com.ciechu.brewdogrecipes.features.data.remote.PunkApi
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -1,11 +1,16 @@
 package com.ciechu.brewdogrecipes.features.beer.presentation
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.map
+import androidx.lifecycle.viewModelScope
+import com.ciechu.brewdogrecipes.core.base.BaseViewModel
 import com.ciechu.brewdogrecipes.features.beer.domain.GetBeerUseCase
 import com.ciechu.brewdogrecipes.features.beer.domain.model.Beer
 import com.ciechu.brewdogrecipes.features.beer.presentation.model.BeerDisplayable
 
-class BeerViewModel(private val getBeerUseCase: GetBeerUseCase) : ViewModel() {
+class BeerViewModel(private val getBeerUseCase: GetBeerUseCase) : BaseViewModel() {
+
 
     private val _beers by lazy {
         MutableLiveData<List<Beer>>()
@@ -18,14 +23,14 @@ class BeerViewModel(private val getBeerUseCase: GetBeerUseCase) : ViewModel() {
     }
 
     private fun getBeers(beerLiveData: MutableLiveData<List<Beer>>) {
+        setPendingState()
         getBeerUseCase(
             params = Unit,
             scope = viewModelScope
         ) { result ->
-            result.onSuccess { beers ->
-                beerLiveData.value = beers
-            }
-            result.onFailure { }
+            setIdleState()
+            result.onSuccess { beerLiveData.value = it }
+            result.onFailure { handleFailure(it) }
         }
     }
 }

@@ -54,6 +54,8 @@ data class BeerCashed(
         beer.volume
     )
 
+    companion object
+
     fun toBeer() = Beer(
         abv = abv,
         attenuationLevel = attenuationLevel,

@@ -37,7 +37,6 @@ class BeerRepositoryImpl(
         } else {
             punkApi.getBeers(currentPage, pageSize)
                 .map { it.toBeer() }
-
         }
     }
 

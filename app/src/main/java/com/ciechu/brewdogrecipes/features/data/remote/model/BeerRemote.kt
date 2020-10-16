@@ -30,6 +30,9 @@ data class BeerRemote(
     @SerializedName("target_og") val targetOg: Double,
     @SerializedName("volume") val volume: VolumeRemote
 ) {
+
+    companion object
+
     fun toBeer() = Beer(
         abv = abv,
         attenuationLevel = attenuationLevel,

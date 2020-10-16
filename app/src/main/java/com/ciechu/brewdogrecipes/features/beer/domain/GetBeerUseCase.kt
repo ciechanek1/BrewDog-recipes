@@ -8,5 +8,6 @@ import com.ciechu.brewdogrecipes.features.beer.domain.model.Beer
 class GetBeerUseCase(private val beerRepository: BeerRepository) :
     UseCase<List<Beer>, Unit>() {
 
-    override suspend fun action(params: Unit) = beerRepository.getBeers()
+    override suspend fun action(params: Unit) =
+        beerRepository.getBeers(String(), String().toInt(), String().toInt())
 }

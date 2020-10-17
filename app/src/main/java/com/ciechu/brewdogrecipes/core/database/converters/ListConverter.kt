@@ -1,4 +1,4 @@
-package com.ciechu.brewdogrecipes.core.database
+package com.ciechu.brewdogrecipes.core.database.converters
 
 import androidx.room.TypeConverter
 import com.google.gson.Gson

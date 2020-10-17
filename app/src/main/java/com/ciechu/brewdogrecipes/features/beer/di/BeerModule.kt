@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 val beerModule = module {
     //data
-    factory<BeerRepository> { BeerRepositoryImpl(get(), get()) }
+    factory<BeerRepository> { BeerRepositoryImpl(get(), get(), get()) }
 
     //domain
     factory { GetBeerUseCase(get()) }

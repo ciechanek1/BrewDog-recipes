@@ -3,7 +3,6 @@ package com.ciechu.brewdogrecipes.features.beer.presentation
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ciechu.brewdogrecipes.R
 import com.ciechu.brewdogrecipes.core.base.BaseFragment
@@ -17,7 +16,6 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
 
     private val beerAdapter: BeerAdapter by inject()
     private val layoutManager: LinearLayoutManager by inject()
-    private val dividerItemDecoration: DividerItemDecoration by inject()
 
     private lateinit var searchView: SearchView
 
@@ -85,7 +83,6 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     private fun initRecyclerView() {
         beerListRecyclerView.apply {
             layoutManager = this@BeerListFragment.layoutManager
-            // addItemDecoration(dividerItemDecoration)
             adapter = beerAdapter
         }
     }

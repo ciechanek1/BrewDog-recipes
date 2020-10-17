@@ -1,66 +1,34 @@
 package com.ciechu.brewdogrecipes.features.beer.presentation
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.ciechu.brewdogrecipes.R
-import com.ciechu.brewdogrecipes.core.base.UiState
+import com.ciechu.brewdogrecipes.core.base.BaseFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
+class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list) {
 
-class BeerListFragment : Fragment() {
+    override val viewModel: BeerViewModel by viewModel()
 
-    private val viewModel: BeerViewModel by viewModel()
+    override fun initViews() {
+        super.initViews()
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
+    override fun initObserves() {
+        super.initObserves()
         observeBeers()
-        observeUiState()
-        observeMessage()
     }
 
-    private fun observeMessage() {
-        viewModel.message.observe(this, Observer {
-            showToast(it)
-        })
+    override fun onIdleState() {
+        super.onIdleState()
     }
 
-    private fun showToast(message: String?) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    private fun observeUiState() {
-        viewModel.uiState.observe(this, Observer {
-            when (it) {
-                UiState.Idle -> onIdleState()
-                UiState.Pending -> onPendingState()
-            }
-        })
-    }
-
-    private fun onIdleState() {
-        //handle idle state
-    }
-
-    private fun onPendingState() {
-        //handle pending state
+    override fun onPendingState() {
+        super.onPendingState()
     }
 
     private fun observeBeers() {
         viewModel.beers.observe(this, Observer {
             //code to show beers
         })
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_beer_list, container, false)
     }
 }

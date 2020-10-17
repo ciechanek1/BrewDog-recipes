@@ -11,15 +11,15 @@ import com.ciechu.brewdogrecipes.features.beer.presentation.model.BeerDisplayabl
 
 class BeerViewModel(private val getBeerUseCase: GetBeerUseCase) : BaseViewModel() {
 
-
     private val _beers by lazy {
         MutableLiveData<List<Beer>>()
             .also { getBeers(it) }
     }
 
-    val beers: LiveData<List<BeerDisplayable>> = _beers.map { beers ->
-        beers.map { BeerDisplayable(it) }
-
+    val beers: LiveData<List<BeerDisplayable>> by lazy {
+        _beers.map { beers ->
+            beers.map { BeerDisplayable(it) }
+        }
     }
 
     private fun getBeers(beerLiveData: MutableLiveData<List<Beer>>) {

@@ -22,7 +22,9 @@ data class Beer(
     val targetFg: Double,
     val targetOg: Double,
     val volume: Volume
-)
+) {
+    companion object
+}
 
 data class BoilVolume(
     val unit: String,

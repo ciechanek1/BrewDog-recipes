@@ -58,3 +58,28 @@ fun BeerCashed.Companion.mock() = BeerCashed(
     targetOg = 1.04,
     volume = Volume("unit", 5)
 )
+
+@TestOnly
+fun Beer.Companion.mock() = Beer(
+    abv = 1.12,
+    attenuationLevel = 1.04,
+    boilVolume = BoilVolume("unit", 5),
+    brewersTips = "brewerTips",
+    contributedBy = "contributedBy",
+    description = "description",
+    ebc = 10.11,
+    firstBrewed = "firstBrewed",
+    foodPairing = emptyList(),
+    ibu = 1.03,
+    id = 2,
+    imageUrl = "imageUrl",
+    ingredients = Ingredients(emptyList(), emptyList(), "yeas"),
+    method = Method(Fermentation(FermentationTemp("unit", 1.04)), emptyList(), "any()"),
+    name = "name",
+    ph = 4.50,
+    srm = 1.04,
+    tagline = "tagline",
+    targetFg = 1.04,
+    targetOg = 1.04,
+    volume = Volume("unit", 5)
+)

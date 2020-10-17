@@ -3,6 +3,7 @@ package com.ciechu.brewdogrecipes.features.beer.di
 import com.ciechu.brewdogrecipes.features.beer.BeerRepository
 import com.ciechu.brewdogrecipes.features.beer.data.repository.BeerRepositoryImpl
 import com.ciechu.brewdogrecipes.features.beer.domain.GetBeerUseCase
+import com.ciechu.brewdogrecipes.features.beer.presentation.BeerAdapter
 import com.ciechu.brewdogrecipes.features.beer.presentation.BeerListFragment
 import com.ciechu.brewdogrecipes.features.beer.presentation.BeerViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -18,4 +19,5 @@ val beerModule = module {
     //presentation
     viewModel { BeerViewModel(get()) }
     factory { BeerListFragment() }
+    factory { BeerAdapter() }
 }

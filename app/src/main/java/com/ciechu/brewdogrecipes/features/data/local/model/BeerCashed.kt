@@ -18,7 +18,7 @@ data class BeerCashed(
     val firstBrewed: String,
     val foodPairing: List<String>,
     val ibu: Double,
-    val imageUrl: String,
+    val imageUrl: String?,
     val ingredients: Ingredients,
     val method: Method,
     val name: String,

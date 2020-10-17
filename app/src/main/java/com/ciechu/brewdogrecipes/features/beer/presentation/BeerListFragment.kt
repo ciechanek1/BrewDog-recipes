@@ -2,6 +2,7 @@ package com.ciechu.brewdogrecipes.features.beer.presentation
 
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ciechu.brewdogrecipes.R
@@ -18,6 +19,8 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     private val layoutManager: LinearLayoutManager by inject()
     private val dividerItemDecoration: DividerItemDecoration by inject()
 
+    private lateinit var searchView: SearchView
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,8 +31,28 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu_page, menu)
         super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_page, menu)
+
+        val menuItem = menu.findItem(R.id.search_beer_button)
+        searchView = menuItem.actionView as SearchView
+        searchView.queryHint = "Search beers"
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.currentQuery = newText.toString()
+                viewModel.getBeers(
+                    viewModel.currentQuery,
+                    viewModel.currentPage,
+                    viewModel.pageSize
+                )
+                return false
+            }
+        })
     }
 
     override fun initViews() {
@@ -40,6 +63,7 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     override fun initObserves() {
         super.initObserves()
         observeBeers()
+        viewModel.getBeers(viewModel.currentQuery, viewModel.currentPage, viewModel.pageSize)
     }
 
     override fun onIdleState() {
@@ -61,7 +85,7 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     private fun initRecyclerView() {
         beerListRecyclerView.apply {
             layoutManager = this@BeerListFragment.layoutManager
-            addItemDecoration(dividerItemDecoration)
+            // addItemDecoration(dividerItemDecoration)
             adapter = beerAdapter
         }
     }

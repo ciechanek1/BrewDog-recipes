@@ -12,7 +12,7 @@ data class Beer(
     val foodPairing: List<String>,
     val ibu: Double,
     val id: Int,
-    val imageUrl: String,
+    val imageUrl: String?,
     val ingredients: Ingredients,
     val method: Method,
     val name: String,

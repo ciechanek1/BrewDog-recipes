@@ -1,6 +1,7 @@
 package com.ciechu.brewdogrecipes.features.beer.presentation
 
-import android.view.View
+import android.os.Bundle
+import android.view.*
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ciechu.brewdogrecipes.R
@@ -9,7 +10,6 @@ import kotlinx.android.synthetic.main.fragment_beer_list.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-
 class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list) {
 
     override val viewModel: BeerViewModel by viewModel()
@@ -17,6 +17,20 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     private val beerAdapter: BeerAdapter by inject()
     private val layoutManager: LinearLayoutManager by inject()
     private val dividerItemDecoration: DividerItemDecoration by inject()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        setHasOptionsMenu(true)
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_page, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
     override fun initViews() {
         super.initViews()

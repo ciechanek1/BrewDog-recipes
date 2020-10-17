@@ -10,7 +10,7 @@ interface PunkApi {
     suspend fun getBeers(
         @Query("page") page: Int,
         @Query("per_page") per_page: Int
-    ): List<BeerRemote> //BeerResponse
+    ): List<BeerRemote>
 
     @GET("beers")
     suspend fun getBeersByName(

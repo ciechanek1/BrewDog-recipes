@@ -11,6 +11,10 @@ import com.ciechu.brewdogrecipes.features.beer.presentation.model.BeerDisplayabl
 
 class BeerViewModel(private val getBeerUseCase: GetBeerUseCase) : BaseViewModel() {
 
+    private var startPage = 1
+    private var pageSize = 50
+    private var currentQuery = ""
+
     private val _beers by lazy {
         MutableLiveData<List<Beer>>()
             .also { getBeers(it) }
@@ -25,7 +29,9 @@ class BeerViewModel(private val getBeerUseCase: GetBeerUseCase) : BaseViewModel(
     private fun getBeers(beerLiveData: MutableLiveData<List<Beer>>) {
         setPendingState()
         getBeerUseCase(
-            params = Unit,
+            params = currentQuery,
+            params2 = startPage,
+            params3 = pageSize,
             scope = viewModelScope
         ) { result ->
             setIdleState()

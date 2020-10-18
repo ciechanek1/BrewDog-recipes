@@ -45,7 +45,7 @@ data class Ingredients(
 @Parcelize
 data class Method(
     val fermentation: Fermentation,
-    val mashTemp: List<Mash>,
+    val mash_temp: List<Mash>,
 ) : Parcelable
 
 @Parcelize

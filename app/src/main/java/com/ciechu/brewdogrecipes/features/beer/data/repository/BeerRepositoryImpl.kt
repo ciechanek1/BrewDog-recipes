@@ -1,7 +1,7 @@
 package com.ciechu.brewdogrecipes.features.beer.data.repository
 
 import com.ciechu.brewdogrecipes.core.network.NetworkStateProvider
-import com.ciechu.brewdogrecipes.features.beer.BeerRepository
+import com.ciechu.brewdogrecipes.features.beer.domain.BeerRepository
 import com.ciechu.brewdogrecipes.features.beer.domain.model.Beer
 import com.ciechu.brewdogrecipes.features.data.local.BeerDao
 import com.ciechu.brewdogrecipes.features.data.local.model.BeerCashed

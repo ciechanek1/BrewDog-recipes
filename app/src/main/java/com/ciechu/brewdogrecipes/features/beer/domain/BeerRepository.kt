@@ -1,4 +1,4 @@
-package com.ciechu.brewdogrecipes.features.beer
+package com.ciechu.brewdogrecipes.features.beer.domain
 
 import com.ciechu.brewdogrecipes.features.beer.domain.model.Beer
 

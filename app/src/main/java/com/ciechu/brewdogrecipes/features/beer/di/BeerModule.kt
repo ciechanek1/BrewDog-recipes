@@ -1,11 +1,14 @@
 package com.ciechu.brewdogrecipes.features.beer.di
 
-import com.ciechu.brewdogrecipes.features.beer.BeerRepository
+import com.ciechu.brewdogrecipes.features.beer.all.presentation.BeerAdapter
+import com.ciechu.brewdogrecipes.features.beer.all.presentation.BeerListFragment
+import com.ciechu.brewdogrecipes.features.beer.all.presentation.BeerViewModel
 import com.ciechu.brewdogrecipes.features.beer.data.repository.BeerRepositoryImpl
+import com.ciechu.brewdogrecipes.features.beer.details.presentation.BeerDetailsViewModel
+import com.ciechu.brewdogrecipes.features.beer.domain.BeerRepository
 import com.ciechu.brewdogrecipes.features.beer.domain.GetBeerUseCase
-import com.ciechu.brewdogrecipes.features.beer.presentation.BeerAdapter
-import com.ciechu.brewdogrecipes.features.beer.presentation.BeerListFragment
-import com.ciechu.brewdogrecipes.features.beer.presentation.BeerViewModel
+import com.ciechu.brewdogrecipes.features.beer.navigator.BeerNavigator
+import com.ciechu.brewdogrecipes.features.beer.navigator.BeerNavigatorImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -17,7 +20,10 @@ val beerModule = module {
     factory { GetBeerUseCase(get()) }
 
     //presentation
-    viewModel { BeerViewModel(get()) }
+    factory<BeerNavigator> { BeerNavigatorImpl(get()) }
+
+    viewModel { BeerViewModel(get(), get()) }
+    viewModel { BeerDetailsViewModel() }
     factory { BeerListFragment() }
     factory { BeerAdapter() }
 }

@@ -1,7 +1,10 @@
-package com.ciechu.brewdogrecipes.features.beer.presentation.model
+package com.ciechu.brewdogrecipes.features.beer.all.presentation.model
 
+import android.os.Parcelable
 import com.ciechu.brewdogrecipes.features.beer.domain.model.*
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class BeerDisplayable(
     val abv: Double,
     val attenuationLevel: Double,
@@ -24,7 +27,8 @@ data class BeerDisplayable(
     val targetFg: Double,
     val targetOg: Double,
     val volume: Volume
-) {
+) : Parcelable {
+
     constructor(beer: Beer) : this(
         abv = beer.abv,
         attenuationLevel = beer.attenuationLevel,
@@ -48,4 +52,6 @@ data class BeerDisplayable(
         targetOg = beer.targetOg,
         volume = beer.volume
     )
+
+    companion object
 }

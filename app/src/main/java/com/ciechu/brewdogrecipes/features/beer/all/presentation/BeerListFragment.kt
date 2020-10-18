@@ -1,9 +1,8 @@
-package com.ciechu.brewdogrecipes.features.beer.presentation
+package com.ciechu.brewdogrecipes.features.beer.all.presentation
 
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.ciechu.brewdogrecipes.R
 import com.ciechu.brewdogrecipes.core.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_beer_list.*
@@ -13,9 +12,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list) {
 
     override val viewModel: BeerViewModel by viewModel()
-
     private val beerAdapter: BeerAdapter by inject()
-    private val layoutManager: LinearLayoutManager by inject()
 
     private lateinit var searchView: SearchView
 
@@ -82,8 +79,9 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
 
     private fun initRecyclerView() {
         beerListRecyclerView.apply {
-            layoutManager = this@BeerListFragment.layoutManager
+            setHasFixedSize(true)
             adapter = beerAdapter
         }
+        beerAdapter.setOnBeerClickListener { viewModel.onBeerClick(it) }
     }
 }

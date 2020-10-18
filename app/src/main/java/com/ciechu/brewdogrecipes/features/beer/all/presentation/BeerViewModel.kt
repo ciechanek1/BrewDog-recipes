@@ -29,7 +29,7 @@ class BeerViewModel(
         }
     }
 
-    fun getBeers(currentQuery: String, currentPage: Int, pageSize: Int) {
+    fun getBeers(currentQuery: String, currentPage: String, pageSize: String) {
         setPendingState()
         getBeerUseCase(
             params = currentQuery,

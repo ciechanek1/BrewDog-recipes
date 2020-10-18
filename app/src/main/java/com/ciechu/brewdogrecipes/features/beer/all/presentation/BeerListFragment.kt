@@ -42,8 +42,8 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
                 viewModel.currentQuery = newText.toString()
                 viewModel.getBeers(
                     viewModel.currentQuery,
-                    viewModel.currentPage,
-                    viewModel.pageSize
+                    viewModel.currentPage.toString(),
+                    viewModel.pageSize.toString()
                 )
                 return false
             }
@@ -58,7 +58,11 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     override fun initObserves() {
         super.initObserves()
         observeBeers()
-        viewModel.getBeers(viewModel.currentQuery, viewModel.currentPage, viewModel.pageSize)
+        viewModel.getBeers(
+            viewModel.currentQuery,
+            viewModel.currentPage.toString(),
+            viewModel.pageSize.toString()
+        )
     }
 
     override fun onIdleState() {

@@ -20,7 +20,12 @@ internal class BeerRepositoryImplTest {
     fun `GIVEN network is connected WHEN beers request THEN fetch beers from API`() {
         //given
         val api = mockk<PunkApi> {
-            coEvery { getBeers(1, 10) } returns listOf(BeerRemote.mock())
+            coEvery {
+                getBeers(
+                    page = String(),
+                    per_page = String()
+                )
+            } returns listOf(BeerRemote.mock())
         }
         val beerDao = mockk<BeerDao>(relaxed = true)
         val networkStateProvider = mockk<NetworkStateProvider> {
@@ -31,17 +36,28 @@ internal class BeerRepositoryImplTest {
             BeerRepositoryImpl(api, beerDao, networkStateProvider)
 
         //when
-        runBlocking { repository.getBeers("", 1, 10) }
+        runBlocking {
+            repository.getBeers(
+                currentQuery = String(),
+                currentPage = String(),
+                pageSize = String()
+            )
+        }
 
         //then
-        coVerify { api.getBeers(1, 10) }
+        coVerify { api.getBeers(page = String(), per_page = String()) }
     }
 
     @Test
     fun `GIVEN network is connected AND successful data fetch WHEN beers request THEN save beers to local database`() {
         //given
         val api = mockk<PunkApi> {
-            coEvery { getBeers(1, 10) } returns listOf(BeerRemote.mock())
+            coEvery {
+                getBeers(
+                    page = String(),
+                    per_page = String()
+                )
+            } returns listOf(BeerRemote.mock())
         }
         val beerDao = mockk<BeerDao>(relaxed = true)
         val networkStateProvider = mockk<NetworkStateProvider> {
@@ -52,7 +68,13 @@ internal class BeerRepositoryImplTest {
             BeerRepositoryImpl(api, beerDao, networkStateProvider)
 
         //when
-        runBlocking { repository.getBeers("", 1, 10) }
+        runBlocking {
+            repository.getBeers(
+                currentQuery = String(),
+                currentPage = String(),
+                pageSize = String()
+            )
+        }
 
         //then
         coVerify { beerDao.saveBeers(*anyVararg()) }
@@ -73,7 +95,13 @@ internal class BeerRepositoryImplTest {
             BeerRepositoryImpl(api, beerDao, networkStateProvider)
 
         //when
-        runBlocking { repository.getBeers("", 1, 10) }
+        runBlocking {
+            repository.getBeers(
+                currentQuery = String(),
+                currentPage = String(),
+                pageSize = String()
+            )
+        }
 
         //then
         coVerify { beerDao.getBeers() }

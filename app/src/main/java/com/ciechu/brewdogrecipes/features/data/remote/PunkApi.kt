@@ -8,14 +8,14 @@ interface PunkApi {
 
     @GET("beers")
     suspend fun getBeers(
-        @Query("page") page: Int,
-        @Query("per_page") per_page: Int
+        @Query("page") page: String,
+        @Query("per_page") per_page: String
     ): List<BeerRemote>
 
     @GET("beers")
     suspend fun getBeersByName(
-        @Query("page") page: Int,
-        @Query("per_page") per_page: Int,
+        @Query("page") page: String,
+        @Query("per_page") per_page: String,
         @Query("beer_name") currentQuery: String
     ): List<BeerRemote>
 }

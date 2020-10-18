@@ -1,6 +1,7 @@
 package com.ciechu.brewdogrecipes.features.beer.all.presentation
 
 import androidx.lifecycle.Observer
+import androidx.lifecycle.viewModelScope
 import com.ciechu.brewdogrecipes.core.base.UiState
 import com.ciechu.brewdogrecipes.features.beer.domain.GetBeerUseCase
 import com.ciechu.brewdogrecipes.features.beer.domain.model.Beer
@@ -17,19 +18,19 @@ import org.junit.Test
 
 internal class BeerViewModelTest : ViewModelTest() {
 
-    /*  @Test
+    @Test
       fun `WHEN beers live data is observed THEN invoke use case to get beers`() {
-          //given
-          val useCase = mockk<GetBeerUseCase>(relaxed = true)
-          val beerNavigator = mockk<BeerNavigator>(relaxed = true)
-          val viewModel = BeerViewModel(useCase, beerNavigator)
+        //given
+        val useCase = mockk<GetBeerUseCase>(relaxed = true)
+        val beerNavigator = mockk<BeerNavigator>(relaxed = true)
+        val viewModel = BeerViewModel(useCase, beerNavigator)
 
-          //when
-          viewModel.beers.observeForTesting()
+        //when
+        viewModel.beers.observeForTesting()
 
-          //then
-          verify { useCase(String(), Int, Int, viewModel.viewModelScope, any(), any()) }
-      }*/
+        //then
+        verify { useCase(String(), String(), String(), viewModel.viewModelScope, any(), any()) }
+    }
 
     @Test
     fun `WHEN beers live data is observed THEN set pending state`() {

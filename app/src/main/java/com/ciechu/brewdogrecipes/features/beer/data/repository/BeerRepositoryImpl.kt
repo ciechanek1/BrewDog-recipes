@@ -15,8 +15,8 @@ class BeerRepositoryImpl(
 
     override suspend fun getBeers(
         currentQuery: String?,
-        currentPage: Int,
-        pageSize: Int
+        currentPage: String,
+        pageSize: String
     ): List<Beer> {
         return if (networkStateProvider.isNetworkAvailable()) {
             return getBeersFromRemote(currentQuery, currentPage, pageSize)
@@ -28,8 +28,8 @@ class BeerRepositoryImpl(
 
     private suspend fun getBeersFromRemote(
         currentQuery: String?,
-        currentPage: Int,
-        pageSize: Int
+        currentPage: String,
+        pageSize: String
     ): List<Beer> {
         return if (!currentQuery.isNullOrEmpty()) {
             punkApi.getBeersByName(currentPage, pageSize, currentQuery)

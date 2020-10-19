@@ -20,9 +20,10 @@
 
             <TextView
                 android:id="@+id/hop_name_view"
-                android:layout_width="wrap_content"
+                android:layout_width="278dp"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 tools:text="Hop name" />
 
             <TextView
@@ -36,6 +37,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
             android:orientation="horizontal">
 
             <TextView
@@ -47,7 +49,7 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="20dp"
+                android:layout_width="26dp"
                 android:layout_height="wrap_content"
                 android:text="-"
                 android:textAlignment="center" />

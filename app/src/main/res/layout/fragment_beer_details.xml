@@ -57,6 +57,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -81,6 +82,7 @@
                 android:id="@+id/attenuation_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:layout_weight="1"
                 android:textSize="16sp"
                 tools:text="attenuation" />
@@ -89,6 +91,7 @@
                 android:id="@+id/ebc_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:textSize="16sp"
                 tools:text="ebc" />
 
@@ -96,6 +99,7 @@
                 android:id="@+id/ph_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:textSize="16sp"
                 tools:text="ph" />
 
@@ -103,6 +107,7 @@
                 android:id="@+id/volume_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:textSize="16sp"
                 tools:text="volume" />
 
@@ -110,6 +115,7 @@
                 android:id="@+id/boil_volume_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
                 android:textSize="16sp"
                 tools:text="boil volume" />
 
@@ -117,14 +123,16 @@
                 android:id="@+id/textView12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="mash"
+                android:layout_marginTop="1dp"
+                android:text="Mash"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -160,13 +168,15 @@
                 android:layout_height="wrap_content"
                 android:text="Fermentation"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/fermentation_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
                 android:textSize="16sp"
                 tools:text="fermentation" />
 
@@ -176,15 +186,15 @@
                 android:layout_height="wrap_content"
                 android:text="Ingredients"
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/malt_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Malt:"
-                android:textSize="16sp"
+                android:text="Malts:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -203,8 +213,8 @@
                 android:id="@+id/textView22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hop:"
-                android:textSize="16sp"
+                android:text="Hops:"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -224,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yeast:"
-                android:textSize="16sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView

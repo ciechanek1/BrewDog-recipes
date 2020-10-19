@@ -3,6 +3,7 @@ package com.ciechu.brewdogrecipes.features.beer.all.presentation
 import android.os.Bundle
 import android.view.*
 import android.widget.SearchView
+import androidx.appcompat.app.AppCompatActivity
 import com.ciechu.brewdogrecipes.R
 import com.ciechu.brewdogrecipes.core.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_beer_list.*
@@ -45,6 +46,7 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
                     viewModel.currentPage.toString(),
                     viewModel.pageSize.toString()
                 )
+                viewModel.currentQuery = ""
                 return false
             }
         })
@@ -53,6 +55,11 @@ class BeerListFragment : BaseFragment<BeerViewModel>(R.layout.fragment_beer_list
     override fun initViews() {
         super.initViews()
         initRecyclerView()
+        titleActionBar()
+    }
+
+    private fun titleActionBar() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "BrewDog beer list"
     }
 
     override fun initObserves() {

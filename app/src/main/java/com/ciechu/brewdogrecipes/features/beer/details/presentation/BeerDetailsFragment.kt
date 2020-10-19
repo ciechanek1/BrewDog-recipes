@@ -2,6 +2,7 @@ package com.ciechu.brewdogrecipes.features.beer.details.presentation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import com.ciechu.brewdogrecipes.R
 import com.ciechu.brewdogrecipes.core.base.BaseFragment
@@ -29,11 +30,16 @@ class BeerDetailsFragment : BaseFragment<BeerDetailsViewModel>(R.layout.fragment
     override fun initViews() {
         super.initViews()
         initRecyclerView()
+        titleActionBar()
     }
 
     override fun initObserves() {
         super.initObserves()
         observeBeer()
+    }
+
+    private fun titleActionBar() {
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Beer details"
     }
 
     private fun observeBeer() {

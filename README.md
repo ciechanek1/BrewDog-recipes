@@ -15,4 +15,4 @@ You can **search** beers by name
 You have **offline access** to the database
 
 ## Screenshots
-![Example screenshot](./img/1.png)![Example screenshot](./img/2.png)
+![Example screenshot](./img/1.png) 

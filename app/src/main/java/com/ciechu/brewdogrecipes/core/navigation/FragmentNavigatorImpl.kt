@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
+import com.ciechu.brewdogrecipes.R
 import com.ciechu.brewdogrecipes.core.provider.ActivityProvider
 
 class FragmentNavigatorImpl(
@@ -35,12 +36,12 @@ class FragmentNavigatorImpl(
         val bundle = param?.let { bundleOf(it) }
         val navOptions = fragmentTransition?.let {
             navOptions {
-                anim { enter = it.enterAnim }
-                anim { exit = it.exitAnim }
-                anim { popEnter = it.popEnterAnim }
-                anim { popExit = it.popExitAnim }
+                anim { enter = R.anim.from_left }
+                anim { exit = R.anim.from_right }
+                anim { popEnter = R.anim.from_left }
+                anim { popExit = R.anim.from_right }
             }
-        } ?: defaultNavOptions
+        } //?: defaultNavOptions
 
         getNavController()?.navigate(destinationId, bundle, navOptions)
     }

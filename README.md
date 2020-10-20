@@ -26,7 +26,7 @@ List of TODOs for future development
 * Add DataBinding
 
 ## Screenshots
-<img src = "https://github.com/ciechanek1/BrewDog-recipes/blob/master/img/1.png" width = 400> | <img src = "https://github.com/ciechanek1/BrewDog-recipes/blob/master/img/3.png" width = 400>
+<img src = "https://github.com/ciechanek1/BrewDog-recipes/blob/master/img/1.png" width = 300> | <img src = "https://github.com/ciechanek1/BrewDog-recipes/blob/master/img/2.png" width = 300>
 
 ## Status
 Project is: _in progress_
